@@ -1,26 +1,21 @@
-import Card from '../components/Card'
+import ItemList from './ItemList'
 
-export default function ItemListContainer () {
-    const greeting = "Bienvenido a la tienda"
+
+export default function ItemListContainer (props) {
     return (
         <>
-            <section class="text-gray-400 body-font bg-gray-900 text-left">
-            <div class="container px-5 py-24 mx-auto">
-                <div class="flex flex-wrap w-full mb-20">
-                <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">{greeting}</h1>
-                    <div class="h-1 w-20 bg-red-500 rounded"></div>
+            <section className="text-left text-gray-400 bg-gray-900 body-font">
+            <div className="container px-5 py-24 mx-auto">
+                <div className="flex flex-wrap w-full mb-20">
+                <div className="w-full mb-6 lg:w-1/2 lg:mb-0">
+                    <h1 className="mb-2 text-2xl font-medium text-white sm:text-3xl title-font">{props.greeting}</h1>
+                    <div className="w-20 h-1 bg-red-500 rounded"></div>
                 </div>
-                <p class="lg:w-1/2 w-full leading-relaxed text-gray-400 text-opacity-90">
+                <p className="w-full leading-relaxed text-gray-400 lg:w-1/2 text-opacity-90">
                     Entrega final para el proyecto Eccomerce de React Js Coder House
                 </p>
                 </div>
-                <div class="flex flex-wrap -m-4">
-                    <Card titleName="Producto" subTitle="Categoría" desc="Producto de prueba"/>
-                    <Card titleName="Producto" subTitle="Categoría" desc="Producto de prueba"/>
-                    <Card titleName="Producto" subTitle="Categoría" desc="Producto de prueba"/>
-                    <Card titleName="Producto" subTitle="Categoría" desc="Producto de prueba"/>
-                </div>
+                <ItemList />
             </div>
             </section>
         </>
