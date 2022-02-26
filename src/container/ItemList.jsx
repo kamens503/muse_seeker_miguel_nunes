@@ -40,15 +40,21 @@ const queryProducts = new Promise((resolve, reject) => {
     }, 2000);
 })
 
+const  queryMercadoProduct = async (query) => {
+    const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`),
+          data = await response.json()
+
+    return data
+}
 
 export default function ItemList () {
 
     const [products, setProducts] = useState([])
 
     useEffect( () => {
-        queryProducts.then(r => {
-            console.log(r);
-            setProducts(r)
+        queryMercadoProduct('pelotas').then(r => {
+            console.log(r.results);
+            setProducts(r.results)
         })
     }, [])
 
@@ -59,8 +65,8 @@ export default function ItemList () {
                 product => 
                     <Card titleName={product.title} 
                         subTitle={product.price}  
-                        desc={product.description}
-                        img= {product.pictureUrl}
+                        desc={product.available_quantity}
+                        img= {product.thumbnail}
                         id={product.id}
                         key={product.id}
                     />
