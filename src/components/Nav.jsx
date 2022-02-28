@@ -16,9 +16,6 @@ export default function Nav () {
                     <Link to="/" className="mr-5 hover:text-white">Productos</Link>
                     <Link to="/category/frutas" className="mr-5 hover:text-white">Frutas</Link>
                     <Link to="/category/zapatos" className="mr-5 hover:text-white">Zapatos</Link>
-
-
-                  
                 </nav>
                 <CartWidget />
             </div>
