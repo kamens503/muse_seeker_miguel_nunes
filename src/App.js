@@ -2,14 +2,32 @@ import { useState } from 'react';
 import './App.css';
 import  Nav from './components/Nav'
 import ItemListContainer from './container/ItemListContainer'
+import ItemDetailContainer from './container/ItemDetailContainer'
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
   
   return (
-    <div className="App">
+    <BrowserRouter>
+    <div className="h-screen bg-gray-900 App">
       <Nav />
-      <ItemListContainer greeting="Bienvenido a la tienda"/>
+        <Routes>
+          <Route 
+            path='/' 
+            element={<ItemListContainer greeting="Bienvenido a la tienda"/>} 
+          />
+          <Route 
+            path='/category/:category' 
+            element={<ItemListContainer greeting="Lista de "/>} 
+          />
+          <Route 
+            path='/item/:id' 
+            element={<ItemDetailContainer />} 
+          />
+        </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
