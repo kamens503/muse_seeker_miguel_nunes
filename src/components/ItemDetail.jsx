@@ -14,15 +14,15 @@ export default function ItemDetail ({title, description, price, pictureUrl, cate
                     <p className="mb-4 leading-relaxed">{description}</p>
                     <div className="flex py-2 border-t border-gray-800">
                     <span className="text-gray-500">Color</span>
-                    <span className="ml-auto textWhite">Blue</span>
+                    <span className="ml-auto textWhite">-</span>
                     </div>
                     <div className="flex py-2 border-t border-gray-800">
-                    <span className="text-gray-500">Size</span>
-                    <span className="ml-auto textWhite">Medium</span>
+                    <span className="text-gray-500">Tamaño</span>
+                    <span className="ml-auto textWhite">-</span>
                     </div>
                     <div className="flex py-2 mb-6 border-t border-b border-gray-800">
-                    <span className="text-gray-500">Quantity</span>
-                    <span className="ml-auto textWhite">4</span>
+                    <span className="text-gray-500">En stock</span>
+                    <span className="ml-auto textWhite">99</span>
                     </div>
                     <div className="flex">
                     <span className="text-2xl font-medium title-font textWhite">${price}</span>
