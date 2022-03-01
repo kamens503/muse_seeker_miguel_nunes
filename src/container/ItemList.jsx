@@ -1,7 +1,9 @@
 import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
-import Card from '../components/Card'
+
 import queryProducts from '../utils/queryProducts'
+import Card from '../components/Card'
+import Loader from '../components/Loader'
 
 
 
@@ -11,14 +13,12 @@ export default function ItemList () {
 
     useEffect( () => {
         queryProducts.then(r => {
-            console.log(r);
             setProducts(r)
         })
     }, [])
 
     const getProductCard = () => {
-
-        if(!products) return
+        if (!products || !products[0] ) return <Loader />
 
         let _products = products
 

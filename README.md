@@ -5,7 +5,9 @@
 Objectivo principal de este proyecto es crear una web app que te permita subir y compartir logotipos para que diseñadores o interesados en crear su propia marca lo usen como referencia. Con el fin de abarcar todas las funcionalidades necesarias para el proyecto final, también se añadirá la posibilidad de comprar y vender logos
 
 ## Progreso
+
 Actualmente la aplicación cuenta con estás funcionalidades:
+
 * Front-End
   * Barra superior de navegación
   * Categorías de prueba accesibles por navegación (Frutas, Zapatos)
