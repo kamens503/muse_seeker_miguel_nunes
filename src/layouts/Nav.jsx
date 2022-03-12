@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom'
 import CartWidget from '../components/CartWidget'
+import CartContext from '../context/cart/context'
+import React, { useContext } from 'react'
 
 export default function Nav () {
+    const context = useContext(CartContext)
+
 
     return (
         <header className="text-gray-400 bg-gray-900 body-font">
@@ -17,7 +21,9 @@ export default function Nav () {
                     <Link to="/category/frutas" className="mr-5 hover:text-white">Frutas</Link>
                     <Link to="/category/zapatos" className="mr-5 hover:text-white">Zapatos</Link>
                 </nav>
-                <CartWidget />
+                {context}
+                <CartWidget {...context}/>
+
             </div>
         </header>
     )
