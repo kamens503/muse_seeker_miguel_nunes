@@ -8,7 +8,7 @@ import ItemDetailContainer from './container/ItemDetailContainer'
 
 function App() {  
   return (
-    <CartContextProvider value={cart.count}>
+    <CartContextProvider>
         <BrowserRouter>
         <div className="h-screen bg-gray-900 App">
           <Nav />

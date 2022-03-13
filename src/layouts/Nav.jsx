@@ -21,8 +21,7 @@ export default function Nav () {
                     <Link to="/category/frutas" className="mr-5 hover:text-white">Frutas</Link>
                     <Link to="/category/zapatos" className="mr-5 hover:text-white">Zapatos</Link>
                 </nav>
-                {context}
-                <CartWidget {...context}/>
+                <CartWidget products={context.cart.products} quantity={context.cart.quantity} />
 
             </div>
         </header>
