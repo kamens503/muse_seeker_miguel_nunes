@@ -5,6 +5,8 @@ import CartContextProvider from './context/cart/provider';
 import  Nav from './layouts/Nav'
 import ItemListContainer from './container/ItemListContainer'
 import ItemDetailContainer from './container/ItemDetailContainer'
+import CartContainer from './container/CartContainer'
+
 
 function App() {  
   return (
@@ -24,6 +26,10 @@ function App() {
               <Route 
                 path='/item/:id' 
                 element={<ItemDetailContainer />} 
+              />
+              <Route 
+                path='/cart' 
+                element={<CartContainer />} 
               />
             </Routes>
         </div>

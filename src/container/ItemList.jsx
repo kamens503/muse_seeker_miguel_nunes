@@ -13,6 +13,7 @@ export default function ItemList () {
 
     useEffect( () => {
         queryProducts.then(r => {
+            console.log(r);
             setProducts(r)
         })
     }, [])
@@ -25,14 +26,7 @@ export default function ItemList () {
         if (category) { _products = products.filter(p => p.category === category)}
         
         return _products.map( 
-            product => <Card titleName={product.title} 
-                            price={product.price}  
-                            desc={product.available_quantity}
-                            img= {product.pictureUrl}
-                            id={product.id}
-                            category={product.category}
-                            key={product.id}
-            />
+            product => <Card {...product} key={product.id}/>
         )
     }
 

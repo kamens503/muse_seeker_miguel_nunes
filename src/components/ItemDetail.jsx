@@ -1,12 +1,27 @@
 import CartContext from '../context/cart/context'
+import ItemCount from './ItemCount'
+import AddProductBtn from './AddProductBtn'
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
-export default function ItemDetail ({title, description, price, pictureUrl, category}) {
-    const context = useContext(CartContext)
+function GoToCart({productInCart}) {
+    if (!productInCart || productInCart?.quantity ) return ''
 
-    function addProductHandler () {
-        context.addItem({title,price,pictureUrl,category})
-    }
+    return (
+        <div className="flex py-4 border-t border-gray-800">
+            <Link to='/cart' className='flex px-6 py-2 m-auto  border-0 rounded focus:outline-none hover:bg-green-600 bg-green-500 text-white'> Completar Compra</Link>  
+        </div>
+    )
+}
+export default function ItemDetail (props) {
+    const {title, description, price, pictureUrl, category, id, stock} = props
+    const cartContext = useContext(CartContext)
+    const productInCart = cartContext.getProduct(id)
+
+    console.log(stock);
+    
+
+    
     return (
         <section className="overflow-hidden text-left text-gray-400 bg-gray-900 body-font">
             <div className="container h-full px-5 py-24 mx-auto">
@@ -28,19 +43,17 @@ export default function ItemDetail ({title, description, price, pictureUrl, cate
                             <span className="text-gray-500">Tamaño</span>
                             <span className="ml-auto textWhite">-</span>
                         </div>
-                        <div className="flex py-2 mb-6 border-t border-b border-gray-800">
-                            <span className="text-gray-500">En stock</span>
-                            <span className="ml-auto textWhite">99</span>
-                        </div>
-                        <div className="flex">
+                        <ItemCount 
+                            stock={cartContext.isInCart(id) ? stock - productInCart.quantity : stock} 
+                            itemsInCart={productInCart ? productInCart?.quantity : false}
+                        />
+
+                        <div className="flex mb-4">
                             <span className="text-2xl font-medium title-font textWhite">${price}</span>
-                            <button onClick={addProductHandler} className="flex px-6 py-2 ml-auto bg-indigo-500 border-0 rounded text-white focus:outline-none hover:bg-indigo-600">Añadir al carrito</button>
-                            <button className="inline-flex items-center justify-center w-10 h-10 p-0 ml-4 text-gray-500 bg-gray-800 border-0 rounded-full">
-                                <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                                </svg>
-                            </button>
+                            <AddProductBtn {...props} />
+                            
                         </div>
+                        <GoToCart productInCart={cartContext.isInCart(id)}/>
                     </div>
                     <img alt="ecommerce" className="object-cover object-center w-full rounded h-62 lg:w-1/2 lg:h-96" src={pictureUrl} />
                 </div>

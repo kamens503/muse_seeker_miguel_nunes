@@ -25,15 +25,7 @@ export default function ItemDetailContainer () {
         if( !id ) return 'Hubo un error en la carga del producto'
         return products.filter(p =>  p.id === parseInt(id))
                         .map( product => 
-                            <ItemDetail 
-                                category={product.category}
-                                description={product.description}
-                                title={product.title} 
-                                pictureUrl={product.pictureUrl} 
-                                price={product.price} 
-                                id={product.id}
-                                key={product.id}
-                            />
+                            <ItemDetail {...product} key={product.id} />
                         )
     }
 

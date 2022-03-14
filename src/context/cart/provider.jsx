@@ -10,8 +10,11 @@ import {useState} from 'react'
  * 
  * @method addItem v
  * @param { object } item
+ * @param { number } amount - Valor por default (1)
+ * 
  * @method removeItem v
  * @param { number } id
+ * @param { number } amount - Valor por default (1)
  * @method clearCart
  */
 export default function CartContextProvider({ props, children }) {
@@ -24,16 +27,24 @@ export default function CartContextProvider({ props, children }) {
         return cart.products.findIndex( product => product.id === id)
     }
 
+    function isInCart(id) {
+        return cart.products.find( product => product.id === id) ? true : false
+    }
+
     const context = {
         cart,
+        getProduct,
+        isInCart,
+        removeItem (id, amount = 1) {
+            if(!isInCart(id)) {return}
 
-        removeItem (id) {
             const _cart = cart
             const product = getProduct(id)
-            _cart.quantity--
-            if( product?.quantity > 1 ) {
+            _cart.quantity = _cart.quantity - amount
+
+            if( product.quantity > 1 ) {
                 const index = getProductIndex(id) 
-                _cart.products[index].quantity--
+                _cart.products[index].quantity = _cart.products[index].quantity - amount
                 setCart({...cart, _cart})
                 console.log('Se ha quitado un item de', product.name, 'del carrito');
                 return
@@ -45,16 +56,21 @@ export default function CartContextProvider({ props, children }) {
             console.log('Se ha borrado product del carrito');
         },
 
-        addItem (item) {
+        addItem (item, amount=1) {
             const _cart = cart
-            _cart.quantity++
-            if( getProduct(item.id) ){
+            _cart.quantity = _cart.quantity + amount
+
+
+            if( isInCart(item.id) ){
                 const index = getProductIndex(item.id) 
-                _cart.products[index].quantity++
+                _cart.products[index].quantity = _cart.products[index].quantity + amount
                 setCart({...cart, _cart})
                 console.log('Item de', item.title, 'añadido al carrito');
                 return 
             }
+
+
+            item.quantity = amount
             _cart.products.push(item)
             setCart({...cart, _cart})
             console.log(item.title, 'añadido al carrito');
