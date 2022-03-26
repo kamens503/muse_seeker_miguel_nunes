@@ -42,11 +42,13 @@ export default function CartContextProvider({ props, children }) {
             const product = getProduct(id)
             _cart.quantity = _cart.quantity - amount
 
-            if( product.quantity > 1 ) {
+            if( product.quantity > amount ) {
                 const index = getProductIndex(id) 
                 _cart.products[index].quantity = _cart.products[index].quantity - amount
                 setCart({...cart, _cart})
-                console.log('Se ha quitado un item de', product.name, 'del carrito');
+                console.log('Se ha quitado un item de', product.title, 'del carrito, quedan', product.quantity);
+                console.log(cart);
+
                 return
             }
             setCart({ 
@@ -66,6 +68,7 @@ export default function CartContextProvider({ props, children }) {
                 _cart.products[index].quantity = _cart.products[index].quantity + amount
                 setCart({...cart, _cart})
                 console.log('Item de', item.title, 'añadido al carrito');
+                console.log(cart);
                 return 
             }
 

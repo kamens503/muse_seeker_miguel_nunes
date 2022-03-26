@@ -47,7 +47,7 @@ export default function AddProductBtn ({title,price,pictureUrl,category, id, sto
         <button 
             onClick={addProductHandler} 
             className={`flex px-6 py-2 ml-auto  border-0 rounded focus:outline-none ${outOfStock ? disabled.style : active.style}`}
-        disabled={outOfStock ? true : ''}>
+        disabled={outOfStock ? true : false}>
             {outOfStock ? disabled.msg : active.msg}
         </button>
         <DeleteOneItemFromCart />

@@ -13,7 +13,6 @@ export default function ItemList () {
 
     useEffect( () => {
         queryProducts.then(r => {
-            console.log(r);
             setProducts(r)
         })
     }, [])
