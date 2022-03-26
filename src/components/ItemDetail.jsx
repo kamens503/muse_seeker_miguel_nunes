@@ -1,7 +1,7 @@
-import CartContext from '../context/cart/context'
+import { CartContext } from '../context/cart/provider'
 import ItemCount from './ItemCount'
 import AddProductBtn from './AddProductBtn'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 function GoToCart({productInCart}) {

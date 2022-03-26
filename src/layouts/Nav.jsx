@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import CartWidget from '../components/CartWidget'
-import CartContext from '../context/cart/context'
-import React, { useContext } from 'react'
+import { CartContext } from '../context/cart/provider'
+import { useContext } from 'react'
 
 export default function Nav () {
     const context = useContext(CartContext)
@@ -18,8 +18,8 @@ export default function Nav () {
                 </Link>
                 <nav className="flex flex-wrap items-center justify-center text-base md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700">
                     <Link to="/" className="mr-5 hover:text-white">Productos</Link>
-                    <Link to="/category/frutas" className="mr-5 hover:text-white">Frutas</Link>
-                    <Link to="/category/zapatos" className="mr-5 hover:text-white">Zapatos</Link>
+                    <Link to="/category/vintage" className="mr-5 hover:text-white">Frutas</Link>
+                    <Link to="/category/modern" className="mr-5 hover:text-white">Zapatos</Link>
                 </nav>
                 <CartWidget products={context.cart.products} quantity={context.cart.quantity} />
 

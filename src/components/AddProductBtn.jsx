@@ -1,5 +1,5 @@
-import CartContext from '../context/cart/context'
-import React, { useContext, useEffect, useState } from 'react'
+import { CartContext } from '../context/cart/provider'
+import { useContext, useEffect, useState } from 'react'
 
 
 const disabled = {

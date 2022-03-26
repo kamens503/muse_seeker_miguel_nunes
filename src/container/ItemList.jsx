@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 
-import queryProducts from '../utils/queryProducts'
+import queryProducts from '../storage/firebaseClient'
 import Card from '../components/Card'
 import Loader from '../components/Loader'
 
@@ -18,6 +18,7 @@ export default function ItemList () {
     }, [])
 
     const getProductCard = () => {
+        console.log(products);
         if (!products || !products[0] ) return <Loader />
 
         let _products = products

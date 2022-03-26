@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import {useEffect, useState} from 'react'
 
-import queryProducts from '../utils/queryProducts'
+import queryProducts from '../storage/firebaseClient'
 import ItemDetail from '../components/ItemDetail' 
 import Loader from '../components/Loader';
 

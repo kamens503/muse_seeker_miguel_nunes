@@ -1,5 +1,7 @@
-import CartContext from './context'
 import {useState} from 'react'
+import React from 'react'
+
+export const CartContext = React.createContext()
 
 
 /**
@@ -17,7 +19,8 @@ import {useState} from 'react'
  * @param { number } amount - Valor por default (1)
  * @method clearCart
  */
-export default function CartContextProvider({ props, children }) {
+// eslint-disable-next-line react/prop-types
+export default function CartContextProvider({ children }) {
     const [cart, setCart] = useState({ products:[], quantity: 0 })
 
     function getProduct(id) {
