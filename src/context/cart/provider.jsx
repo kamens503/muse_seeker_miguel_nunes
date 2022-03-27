@@ -50,16 +50,13 @@ export default function CartContextProvider({ children }) {
                 _cart.products[index].quantity = _cart.products[index].quantity - amount
                 setCart({...cart, _cart})
                 console.log('Se ha quitado un item de', product.title, 'del carrito, quedan', product.quantity);
-                console.log(cart);
 
                 return
             }
-            console.log({left: _cart.products.filter( product => product.id !== id)});
             setCart({ 
                     products: _cart.products.filter( product => product.id !== id), 
                     quantity: _cart.quantity 
                 })
-            console.log('Se ha borrado product del carrito');
         },
 
         addItem (item, amount=1) {

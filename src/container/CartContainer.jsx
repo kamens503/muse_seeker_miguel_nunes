@@ -23,14 +23,14 @@ export default function CartContainer() {
                         <div className='bg-gray-800 p-10 w-80 inline-block m-5 mt-0 h-full'>
 						<p className='text-white text-lg font-bold'>
 							Total:{' '}
-							{products.length > 0
+							{products.length > 1
 								? products.reduce((lastProduct, product) => {
 										return (
 											lastProduct.price * lastProduct.quantity +
 											product.price * product.quantity
 										);
                                 })
-								: 0}
+								: products[0].price}
 						</p>
                         <button className='flex px-6 py-2 mt-5  border-0 rounded focus:outline-none hover:bg-indigo-600 bg-indigo-500 text-white'>Finalizar Compra</button>
 					</div>
