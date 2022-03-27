@@ -54,8 +54,9 @@ export default function CartContextProvider({ children }) {
 
                 return
             }
+            console.log({left: _cart.products.filter( product => product.id !== id)});
             setCart({ 
-                    products: [_cart.products.filter( product => product.id === id)], 
+                    products: _cart.products.filter( product => product.id !== id), 
                     quantity: _cart.quantity 
                 })
             console.log('Se ha borrado product del carrito');

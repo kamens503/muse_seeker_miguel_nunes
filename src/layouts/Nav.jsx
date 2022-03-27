@@ -18,8 +18,8 @@ export default function Nav () {
                 </Link>
                 <nav className="flex flex-wrap items-center justify-center text-base md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700">
                     <Link to="/" className="mr-5 hover:text-white">Productos</Link>
-                    <Link to="/category/vintage" className="mr-5 hover:text-white">Frutas</Link>
-                    <Link to="/category/modern" className="mr-5 hover:text-white">Zapatos</Link>
+                    <Link to="/category/Vintage" className="mr-5 hover:text-white">Vintage</Link>
+                    <Link to="/category/Modern" className="mr-5 hover:text-white">Modern</Link>
                 </nav>
                 <CartWidget products={context.cart.products} quantity={context.cart.quantity} />
 
