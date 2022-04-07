@@ -1,21 +1,25 @@
 # Muse Seeker
 
-## Segunda Entrega Final React-js (Coder House)
+## Entrega Final React-js (Coder House)
 
-Objectivo principal de este proyecto es crear una web app que te permita subir y compartir logotipos para que diseñadores o interesados en crear su propia marca lo usen como referencia. Con el fin de abarcar todas las funcionalidades necesarias para el proyecto final, también se añadirá la posibilidad de comprar y vender logos
+Eccomerce donde puedes comprar logotipos
 
-## Progreso
+## Funcionalidades
 
 Actualmente la aplicación cuenta con estás funcionalidades:
 
-* Front-End
-  * Barra superior de navegación
-  * Categorías de prueba accesibles por navegación (Frutas, Zapatos)
-  * Acceder a lista de productos y detalle de producto
-  * Estilos dinámicos con tailwind
-* Back-End
-  * N/A
-  
+- Front-End
+  - Barra superior de navegación
+  - Categorías de prueba accesibles por navegación
+  - Acceder a lista de productos y detalle de producto
+  - Puedes añadir multiples productos al carrito
+  - Estilos dinámicos con tailwind
+  - Puedes visualizar el carrito
+- Back-End
+  - N/A
+- Base de datos
+  - Firestore
+
 ## Funcionalidades usadas de React hasta ahora
 
 1. Components
@@ -23,3 +27,14 @@ Actualmente la aplicación cuenta con estás funcionalidades:
 3. UseEffect
 4. UseState
 5. UseParams
+6. Context & Provider
+
+## Código ejecutable
+
+Compilar e inicializar React
+
+    npm start
+
+Instalar depedencias
+
+    npm install
